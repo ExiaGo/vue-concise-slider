@@ -3,7 +3,7 @@
   "version": "3.3.3",
   "repository": {
     "type": "git",
-    "url": "git@github.com/warpcgd/vue-concise-slider.git"
+    "url": "git@github.com/Kilen/vue-concise-slider.git"
   },
   "description": "vue-slider,A simple sliding component,has easy configuration,support self-adaption / fullscreen / button / page,and is compatible with mobile and PC terminal",
   "author": "lixichen <warpcgd@qq.com>",

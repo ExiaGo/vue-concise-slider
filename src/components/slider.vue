@@ -70,7 +70,8 @@ export default {
         effect: this.options.effect || 'slide',
         direction: this.options.direction || 'horizontal',
         tracking: false,
-        thresholdDistance: this.options.thresholdDistance || 100,
+        thresholdXDistance: this.options.thresholdXDistance || 100,
+        thresholdYDistance: this.options.thresholdYDistance || 100,
         thresholdTime: this.options.thresholdTime || 500,
         animation: false,
         itemAnimation: this.options.itemAnimation || false,
@@ -420,7 +421,8 @@ export default {
       let deltaTime = now - this.data.start.t
       let deltaX = this.data.end.x - this.data.start.x
       let deltaY = this.data.end.y - this.data.start.y
-      let thresholdDistance = this.s_data.thresholdDistance
+      let thresholdXDistance = this.s_data.thresholdXDistance
+      let thresholdYDistance = this.s_data.thresholdYDistance
       let currentPage = this.data.currentPage
       // 自动滚动重启
       if (this.options.autoplay) {
@@ -439,11 +441,11 @@ export default {
         return false
       } else if (this.options.direction !== 'vertical') {
         // 为了平滑滑动，修改y轴限制
-        if ((deltaX > thresholdDistance) && (Math.abs(deltaY) < thresholdDistance)) {
+        if ((deltaX > thresholdXDistance) && (Math.abs(deltaY) < thresholdYDistance)) {
           // swipe right
           this.pre()
           return false
-        } else if ((-deltaX > thresholdDistance) && (Math.abs(deltaY) < thresholdDistance)) {
+        } else if ((-deltaX > thresholdXDistance) && (Math.abs(deltaY) < thresholdYDistance)) {
           // swipe left
           this.next()
           return false
@@ -458,11 +460,11 @@ export default {
         }
         // 垂直判定
       } else {
-        if ((deltaY > thresholdDistance) && (Math.abs(deltaX) < thresholdDistance)) {
+        if ((deltaY > thresholdYDistance) && (Math.abs(deltaX) < thresholdXDistance)) {
           // swipe right
           this.pre()
           return false
-        } else if ((-deltaY > thresholdDistance) && (Math.abs(deltaX) < thresholdDistance)) {
+        } else if ((-deltaY > thresholdYDistance) && (Math.abs(deltaX) < thresholdXDistance)) {
           // swipe left
           this.next()
           return false
